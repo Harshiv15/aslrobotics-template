@@ -30,8 +30,8 @@ import frc.robot.util.AllianceFlipUtil;
  */
 public final class GlobalConstants {
 
-  public static final RobotMode MODE = RobotMode.SIM;
-  public static final RobotType ROBOT = RobotType.SIMBOT;
+  public static final RobotMode MODE = RobotMode.REAL;
+  public static final RobotType ROBOT = RobotType.COMPBOT;
 
   public static enum RobotMode {
     /** Running on a real robot. */

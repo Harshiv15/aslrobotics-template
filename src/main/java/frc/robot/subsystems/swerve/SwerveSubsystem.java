@@ -102,13 +102,13 @@ public class SwerveSubsystem extends SubsystemBase {
 
   // add the CANCoder id between the rotator id and offset params
   private static final ModuleConstants frontLeft =
-      new ModuleConstants("Front Left", 0, 1, Rotation2d.fromRadians(-PI / 2));
+      new ModuleConstants("Front Left", FLD_ID, FLR_ID, Rotation2d.fromRadians(-PI / 2));
   private static final ModuleConstants frontRight =
-      new ModuleConstants("Front Right", 2, 3, Rotation2d.fromRadians(0));
+      new ModuleConstants("Front Right", FRD_ID, FRR_ID, Rotation2d.fromRadians(0));
   private static final ModuleConstants backLeft =
-      new ModuleConstants("Back Left", 4, 5, Rotation2d.fromRadians(PI));
+      new ModuleConstants("Back Left", BLD_ID, BLR_ID, Rotation2d.fromRadians(PI));
   private static final ModuleConstants backRight =
-      new ModuleConstants("Back Right", 6, 7, Rotation2d.fromRadians(PI / 2));
+      new ModuleConstants("Back Right", BRD_ID, BRR_ID, Rotation2d.fromRadians(PI / 2));
 
   protected final SysIdRoutine sysId;
 

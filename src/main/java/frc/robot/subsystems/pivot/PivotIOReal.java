@@ -4,8 +4,8 @@ import com.revrobotics.*;
 
 public class PivotIOReal implements PivotIO {
   private final CANSparkMax pivot =
-      new CANSparkMax(PivotMap.PIVOT_ID, CANSparkLowLevel.MotorType.kBrushless);
-  private final RelativeEncoder Encoder = pivot.getEncoder();
+      new CANSparkMax(PivotMap.LEFT_PIVOT_ID, CANSparkLowLevel.MotorType.kBrushless);
+  private final RelativeEncoder encoder = pivot.getEncoder();
   private final SparkPIDController pid = pivot.getPIDController();
 
   public PivotIOReal() {

@@ -24,6 +24,7 @@ import static frc.robot.GlobalConstants.RobotMode;
 import static frc.robot.subsystems.swerve.SwerveSubsystem.*;
 
 import com.pathplanner.lib.auto.AutoBuilder;
+import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation3d;
 import edu.wpi.first.math.geometry.Translation3d;
@@ -63,7 +64,7 @@ public class RobotContainer {
               : new SwerveSubsystem(new GyroIO() {}, getSimModules()))
           : null;
 
-  private final Superstructure superstructure = new Superstructure(drive::getPose);
+  private final Superstructure superstructure = new Superstructure(Pose2d::new);
 
   private final Prototypes prototypes =
       Subsystems.PROTOTYPES_ENABLED ? new Prototypes(new PrototypeMotor(1, "Motor 1")) : null;
@@ -101,7 +102,7 @@ public class RobotContainer {
     // Set up auto routines
     autoChooser = new LoggedDashboardChooser<>("Auto Choices", AutoBuilder.buildAutoChooser());
 
-    registerCharacterization();
+    // registerCharacterization();
 
     // Configure the button bindings
     configureButtonBindings();
@@ -115,9 +116,9 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     registerDrivetrain();
-    registerAiming();
-    registerIntake();
-    registerShooting();
+    // registerAiming();
+    // registerIntake();
+    // registerShooting();
     superstructure.registerAutoCommands();
 
     driver.testButton().onTrue(driver.rumble().withTimeout(1.0));

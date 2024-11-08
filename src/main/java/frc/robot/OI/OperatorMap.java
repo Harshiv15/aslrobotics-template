@@ -13,4 +13,6 @@ public interface OperatorMap {
   default Command rumble() {
     return none();
   }
+
+  Trigger intake();
 }

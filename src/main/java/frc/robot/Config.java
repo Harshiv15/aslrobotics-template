@@ -7,11 +7,11 @@ import frc.robot.OI.*;
 public final class Config {
 
   public static final class Subsystems {
-
     public static final boolean DRIVETRAIN_ENABLED = true;
     public static final boolean VISION_ENABLED = true;
     public static final boolean GAME_PIECE_VISION_ENABLED = true;
     public static final boolean INTAKE_ENABLED = false;
+    public static final boolean FEEDER_ENABLED = true;
     public static final boolean PIVOT_ENABLED = true;
     public static final boolean SHOOTER_ENABLED = true;
     public static final boolean CLIMBER_ENABLED = false;
@@ -26,8 +26,8 @@ public final class Config {
     public static final int DRIVER_PORT = 0;
 
     public static final boolean OPERATOR_ENABLED = true;
-    public static final int OPERATOR_PORT = 0;
-    public static final boolean JOYSTICK_OPERATOR_ENABLED = false && OPERATOR_ENABLED;
+    public static final int OPERATOR_PORT = 1;
+    public static final boolean JOYSTICK_OPERATOR_ENABLED = true && OPERATOR_ENABLED;
     public static final boolean BOARD_OPERATOR_ENABLED =
         !JOYSTICK_OPERATOR_ENABLED && OPERATOR_ENABLED;
 
@@ -40,8 +40,12 @@ public final class Config {
       //   ? new CommandBoardControllerSubsystem(OPERATOR_PORT)
       //   : new CommandXboxControllerSubsystem(OPERATOR_PORT);
       return switch (ROBOT) {
-        case COMPBOT -> new BoardOperatorMap(OPERATOR_PORT);
-        case DEVBOT -> new BoardOperatorMap(OPERATOR_PORT);
+        case COMPBOT -> JOYSTICK_OPERATOR_ENABLED
+            ? new XboxOperatorMap(OPERATOR_PORT)
+            : new BoardOperatorMap(OPERATOR_PORT);
+        case DEVBOT -> JOYSTICK_OPERATOR_ENABLED
+            ? new XboxOperatorMap(OPERATOR_PORT)
+            : new BoardOperatorMap(OPERATOR_PORT);
         case SIMBOT -> new SimControllerMap(OPERATOR_PORT);
       };
     }

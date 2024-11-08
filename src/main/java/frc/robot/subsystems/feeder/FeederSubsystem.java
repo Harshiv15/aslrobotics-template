@@ -57,7 +57,9 @@ public class FeederSubsystem extends SubsystemBase {
   }
 
   /** Run the feeder at maximum speed */
-  public Command fast() { return Commands.run(() -> setfeederMode(feederMode.FAST)); }
+  public Command fast() {
+    return Commands.run(() -> setfeederMode(feederMode.FAST));
+  }
 
   /** Trigger based on current draw (beam brake alternative using current detection) */
   public Trigger hasNote() {

@@ -19,11 +19,21 @@ public final class SwerveMap {
     public static final int PIGEON_ID = 30;
   }
 
+  public static final int FRD_ID = 6;
+  public static final int FRR_ID = 5;
+  public static final int FLD_ID = 2;
+  public static final int FLR_ID = 1;
+
+  public static final int BRD_ID = 8;
+  public static final int BRR_ID = 7;
+  public static final int BLD_ID = 4;
+  public static final int BLR_ID = 3;
+
   static final double ODOMETRY_FREQUENCY = 250.0;
 
   // TODO refactor into separate constants files in swerve
-  public static final boolean USING_TALON_DRIVE = true; // change to using kraken FOC?
-  public static final boolean USING_VORTEX_DRIVE = true && !USING_TALON_DRIVE;
+  public static final boolean USING_TALON_DRIVE = false; // change to using kraken FOC?
+  public static final boolean USING_VORTEX_DRIVE = false && !USING_TALON_DRIVE;
 
   public static final double TRACK_WIDTH = Units.inchesToMeters(23.5);
   public static final double WHEEL_BASE = Units.inchesToMeters(23.5);

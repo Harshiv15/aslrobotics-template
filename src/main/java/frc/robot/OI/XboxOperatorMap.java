@@ -31,7 +31,7 @@ public class XboxOperatorMap extends CommandXboxController implements OperatorMa
   // TODO: add intake button
   @Override
   public Trigger intake() {
-    return null;
+    return leftBumper();
   }
 
   @Override
